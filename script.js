@@ -1,6 +1,6 @@
-// Implementing Sticky Navigation
-
 document.addEventListener("DOMContentLoaded", () => {
+  // Implementing Sticky Navigation
+
   const header = document.getElementById("mainHeader");
   const productSection = document.querySelector(".product-detail-section");
 
@@ -19,7 +19,6 @@ document.addEventListener("DOMContentLoaded", () => {
   obs.observe(productSection);
 
   // Implementing Image Carousel
-
   const mainProductImage = document.querySelector(".main-product-image");
   const thumbnails = document.querySelectorAll(".thumbnail");
   const leftArrow = document.querySelector(".left-arrow");
@@ -62,34 +61,71 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
-  // IMAGE ZOOM PREVIEW
-
+  // Implementing Image Zooming on mouse hover
   const mainImageContainer = document.querySelector(".main-image-container");
+  const lens = document.querySelector(".lens");
   const zoomPreview = document.querySelector(".thumbnail-zoom-preview");
+
+  const lensRect = lens.getBoundingClientRect();
+  const mainProductImageRect = mainProductImage.getBoundingClientRect();
+  const zoomPreviewRect = zoomPreview.getBoundingClientRect();
 
   if (mainImageContainer && zoomPreview && mainProductImage) {
     mainImageContainer.addEventListener("mousemove", (e) => {
-      const rect = mainImageContainer.getBoundingClientRect();
+      zoomImage(e);
+    });
 
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
+    lens.addEventListener("mousemove", (e) => {
+      zoomImage(e);
+    });
 
-      const xPercent = (x / rect.width) * 100;
-      const yPercent = (y / rect.height) * 100;
+    mainImageContainer.addEventListener("mouseout", () => {
+      lens.classList.remove("active");
+      zoomPreview.classList.remove("active");
+    });
 
-      zoomPreview.style.display = "block";
+    lens.addEventListener("mouseout", () => {
+      lens.classList.remove("active");
+      zoomPreview.classList.remove("active");
+    });
 
+    function zoomImage(e) {
+      let { x, y } = getMousePosition(e);
+
+      lens.style.left = x + "px";
+      lens.style.top = y + "px";
+
+      let fx = mainProductImageRect.width / lensRect.width;
+      let fy = mainProductImageRect.height / lensRect.height;
+
+      zoomPreview.style.backgroundSize = `${mainProductImageRect.width * fx}px ${mainProductImageRect.height * fy}px`;
+      zoomPreview.style.backgroundPosition = `-${x * fx + 200}px -${y * fy}px`;
       zoomPreview.style.backgroundImage = `url(${mainProductImage.src})`;
 
-      zoomPreview.style.backgroundPosition = `${xPercent}% ${yPercent}%`;
+      lens.classList.add("active");
+      zoomPreview.classList.add("active");
+    }
 
-      zoomPreview.style.left = rect.right + 20 + "px";
-      zoomPreview.style.top = rect.top + "px";
-    });
+    function getMousePosition(e) {
+      const containerRect = mainImageContainer.getBoundingClientRect();
+      const lensRect = lens.getBoundingClientRect();
 
-    mainImageContainer.addEventListener("mouseleave", () => {
-      zoomPreview.style.display = "none";
-    });
+      let x = e.clientX - containerRect.left - lensRect.width / 2;
+      let y = e.clientY - containerRect.top - lensRect.height / 2;
+
+      let minX = 0;
+      let minY = 0;
+      let maxX = containerRect.width - lensRect.width;
+      let maxY = containerRect.height - lensRect.height;
+
+      if (x <= minX) x = minX;
+      if (x >= maxX) x = maxX;
+
+      if (y <= minY) y = minY;
+      if (y >= maxY) y = maxY;
+
+      return { x, y };
+    }
   }
 });
 

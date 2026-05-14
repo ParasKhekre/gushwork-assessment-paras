@@ -4,7 +4,8 @@
   --secondary-blue: #e0f0ff;
   --text-dark: #333;
   --text-light: #666;
-  --text-black: ##0d0d0d;
+  --text-black: #0d0d0d;
+  --text-info: #9a6b2e;
   --border-light: #e0e0e0;
   --border-grey: #cfd1d4;
   --tag-yellow: #fef3c7;
@@ -17,6 +18,14 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Urbanist", sans-serif;
+}
+
+html {
+  /* font-size: 10px; */
+
+  /* 10px / 16px = 0.625 = 62.5% */
+  /* Percentage of user's browser font-size setting */
+  font-size: 62.5%;
 }
 
 body {
@@ -104,7 +113,7 @@ body {
   text-decoration: none;
   color: var(--text-dark);
   font-weight: 500;
-  font-size: 16px;
+  font-size: 1.6rem;
   transition: color 0.2s ease;
   position: relative;
   padding: 5px 0;
@@ -165,7 +174,7 @@ body {
   padding: 10px 20px;
   text-decoration: none;
   color: var(--text-dark);
-  font-size: 15px;
+  font-size: 1.5rem;
   transition: background-color 0.2s ease;
 }
 
@@ -179,7 +188,7 @@ body {
   border: none;
   padding: 12px 24px;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 600;
   cursor: pointer;
   transition: background-color 0.2s ease;
@@ -233,7 +242,7 @@ body {
   padding: 30px 0 20px;
 }
 .breadcrumbs {
-  font-size: 14px;
+  font-size: 1.4rem;
   color: var(--text-light);
   margin-bottom: 10px;
 }
@@ -363,8 +372,10 @@ body {
   width: 100%;
   padding-bottom: 100%; /* 1:1 aspect ratio */
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 25px;
   background-color: var(--background-light); /* Placeholder background */
+  box-shadow: 0 20px 20px rgba(0, 0, 0, 0.25);
+  border: 2px solid white;
 }
 
 .main-product-image {
@@ -387,7 +398,7 @@ body {
   border-radius: 50%;
   width: 40px;
   height: 40px;
-  font-size: 20px;
+  font-size: 2rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -429,21 +440,43 @@ body {
   transform: scale(1.02);
 }
 
+.lens {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 124px;
+  height: 124px;
+  background-color: rgba(171, 158, 158, 0.6);
+  border: 1px solid rgb(197, 192, 192);
+  opacity: 0;
+  cursor: zoom-in;
+}
+
+.lens.active {
+  opacity: 1;
+}
+
 .thumbnail-zoom-preview {
   position: absolute;
+  left: calc(100% + 50px);
+  top: 105px;
   width: 250px;
   height: 250px;
   border-radius: 12px;
 
   background-repeat: no-repeat;
-  background-size: 200%;
+  /* background-size: 200%; */
 
   border: 1px solid #ddd;
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
 
-  display: none;
+  opacity: 0;
   pointer-events: none;
   z-index: 50;
+}
+
+.thumbnail-zoom-preview.active {
+  opacity: 1;
 }
 
 /* Product Info */
@@ -456,8 +489,8 @@ body {
 
 .certifications {
   display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  gap: 10px;
+  /* flex-wrap: wrap; */
 }
 
 .certification-badge {
@@ -467,7 +500,7 @@ body {
   padding: 6px 10px;
   background-color: var(--white);
   border-radius: 8px;
-  font-size: 14px;
+  font-size: 1.4rem;
   font-weight: 500;
   color: #666;
   border: 1px solid var(--border-grey);
@@ -482,11 +515,12 @@ body {
 .certification-badge span {
   position: relative;
   color: #666;
+  white-space: nowrap;
 }
 
 .product-title {
   font-family: "Urbanist", sans-serif;
-  font-size: 40px;
+  font-size: 4rem;
   font-weight: 700;
   font-style: normal;
   line-height: 120%;
@@ -508,7 +542,7 @@ body {
   justify-content: flex-start;
   gap: 10px;
   font-family: "Inter", sans-serif;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 400;
   font-style: normal;
   line-height: 24px;
@@ -522,7 +556,7 @@ body {
 }
 
 .price-section {
-  /* background-color: #F9F9F9; */
+  background-color: #fff;
   border-radius: 10px;
   padding: 16px;
   display: flex;
@@ -532,13 +566,13 @@ body {
 }
 
 .price-label {
-  font-size: 12px;
+  font-size: 1.2rem;
   color: var(--text-light);
   font-weight: 500;
 }
 
 .price-box {
-  font-size: 28px;
+  font-size: 2.8rem;
   font-weight: 700;
   color: var(--text-dark);
 }
@@ -550,8 +584,9 @@ body {
 }
 
 .shipping-tag,
-.returns-tag {
-  font-size: 13px;
+.returns-tag,
+.cert-info {
+  font-size: 1.3rem;
   font-weight: 500;
   padding: 6px 12px;
   border-radius: 6px;
@@ -559,17 +594,17 @@ body {
 
 .shipping-tag {
   background-color: var(--tag-yellow);
-  color: var(--text-dark);
+  color: var(--text-info);
 }
 
 .returns-tag {
   background-color: var(--tag-yellow);
-  color: var(--text-dark);
+  color: var(--text-info);
 }
 
 .cert-info {
-  font-size: 14px;
   color: var(--text-black);
+  background-color: #ddd;
 }
 
 .action-buttons {
@@ -582,7 +617,7 @@ body {
 .button {
   padding: 14px 22px;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 600;
   cursor: pointer;
   transition:
@@ -629,7 +664,7 @@ body {
 }
 
 .trusted-by-text {
-  font-size: 18px;
+  font-size: 1.8rem;
   color: var(--text-light);
   margin-bottom: 30px;
   font-weight: 500;
@@ -691,7 +726,7 @@ body {
   }
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 800px) {
   .product-detail-section {
     flex-direction: column;
     align-items: center;
@@ -719,7 +754,7 @@ body {
   }
 
   .product-title {
-    font-size: 32px;
+    font-size: 3.2rem;
   }
 }
 
@@ -790,11 +825,11 @@ body {
   }
 
   .product-title {
-    font-size: 28px;
+    font-size: 2.8rem;
   }
 
   .price-box {
-    font-size: 24px;
+    font-size: 2.4rem;
   }
 
   .button {
@@ -803,6 +838,9 @@ body {
 }
 
 @media (max-width: 800px) {
+  .product-image-carousel {
+    overflow: hidden;
+  }
   .action-buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -840,20 +878,20 @@ body {
   }
 
   .product-title {
-    font-size: 24px;
+    font-size: 2.4rem;
   }
 
   .product-features li {
-    font-size: 15px;
+    font-size: 1.5rem;
   }
 
   .price-box {
-    font-size: 22px;
+    font-size: 2.2rem;
   }
 
   .shipping-tag,
   .returns-tag {
-    font-size: 12px;
+    font-size: 1.2rem;
     padding: 5px 10px;
   }
 
@@ -910,11 +948,11 @@ body {
   }
 
   .product-title {
-    font-size: 20px;
+    font-size: 2rem;
   }
 
   .price-box {
-    font-size: 20px;
+    font-size: 2rem;
   }
 
   .action-buttons {
@@ -954,7 +992,7 @@ body {
 }
 
 .specs-title {
-  font-size: 42px;
+  font-size: 4.2rem;
   font-weight: 700;
   margin-bottom: 16px;
   text-align: left;
@@ -962,7 +1000,7 @@ body {
 }
 
 .specs-subtitle {
-  font-size: 18px;
+  font-size: 1.8rem;
   color: rgba(255, 255, 255, 0.8);
   text-align: left;
   margin-bottom: 60px;
@@ -1001,7 +1039,7 @@ body {
 .specs-parameter,
 .specs-specification {
   padding: 20px 24px;
-  font-size: 16px;
+  font-size: 1.6rem;
   line-height: 1.5;
   background: rgba(31, 41, 55, 0.9);
 }
@@ -1045,7 +1083,7 @@ body {
   border: 1px solid var(--white);
   padding: 16px 20px 16px 16px;
   border-radius: 12px;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: bold;
   cursor: pointer;
   margin: 0 auto;
@@ -1077,7 +1115,7 @@ body {
 }
 
 .features-title {
-  font-size: 42px;
+  font-size: 4.2rem;
   font-weight: 700;
   color: var(--text-dark);
   margin-bottom: 16px;
@@ -1085,7 +1123,7 @@ body {
 }
 
 .features-subtitle {
-  font-size: 18px;
+  font-size: 1.8rem;
   color: var(--text-light);
   margin-bottom: 60px;
   max-width: 100%;
@@ -1128,7 +1166,7 @@ body {
 }
 
 .feature-title {
-  font-size: 20px;
+  font-size: 2rem;
   font-weight: 600;
   color: var(--text-dark);
   margin-bottom: 12px;
@@ -1136,7 +1174,7 @@ body {
 }
 
 .feature-description {
-  font-size: 15px;
+  font-size: 1.5rem;
   color: var(--text-light);
   line-height: 1.6;
 }
@@ -1147,7 +1185,7 @@ body {
   border: none;
   padding: 16px 40px;
   border-radius: 8px;
-  font-size: 16px;
+  font-size: 1.6rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -1168,7 +1206,7 @@ body {
 @media (min-width: 1601px) {
   .technical-specs-section,
   .features-section {
-    max-width: 2200px;
+    max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
     padding: 100px;
@@ -1177,7 +1215,7 @@ body {
 @media (max-width: 1600px) {
   .technical-specs-section,
   .features-section {
-    padding: 80px;
+    padding: 100px;
   }
 }
 
@@ -1216,12 +1254,12 @@ body {
 
   .specs-title,
   .features-title {
-    font-size: 32px;
+    font-size: 3.2rem;
   }
 
   .specs-subtitle,
   .features-subtitle {
-    font-size: 16px;
+    font-size: 1.6rem;
     margin-bottom: 40px;
   }
 
@@ -1241,12 +1279,12 @@ body {
   .specs-parameter,
   .specs-specification {
     padding: 16px 20px;
-    font-size: 15px;
+    font-size: 1.5rem;
   }
 
   .specs-title,
   .features-title {
-    font-size: 28px;
+    font-size: 2.8rem;
   }
 
   .feature-card {
@@ -1265,11 +1303,11 @@ body {
   }
 
   .feature-title {
-    font-size: 18px;
+    font-size: 1.8rem;
   }
 
   .feature-description {
-    font-size: 14px;
+    font-size: 1.4rem;
   }
 }
 
@@ -1281,19 +1319,19 @@ body {
 
   .specs-title,
   .features-title {
-    font-size: 24px;
+    font-size: 2.4rem;
   }
 
   .specs-parameter,
   .specs-specification {
     padding: 12px 16px;
-    font-size: 14px;
+    font-size: 1.4rem;
   }
 
   .download-button,
   .quote-button {
     padding: 14px 24px;
-    font-size: 15px;
+    font-size: 1.5rem;
   }
 
   .feature-card {
@@ -3356,11 +3394,10 @@ body {
   }
 }
 
-/* @media (max-width: 1600px) {
+@media (max-width: 1600px) {
   .container {
-    padding: 0 100px
+    padding: 0 100px;
   }
-
 }
 
 @media (max-width: 1440px) {
@@ -3373,23 +3410,9 @@ body {
   .container {
     padding: 0 80px;
   }
-} */
-/* 
-@media (max-width: 1080px) {
-  .container {
-    padding: 80px 60px;
-  }
 }
 
-@media (max-width: 800px) {
-  .container {
-    padding: 36px 12px;
-  }
-  .header{
-    padding: 0px;
-  }
- 
-} */
+/*
 
 @media (max-width: 460px) {
   .container {
@@ -3398,4 +3421,4 @@ body {
   .header {
     padding: 2px 12px;
   }
-}
+} */

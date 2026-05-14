@@ -1,7 +1,7 @@
 # Gushwork Assignment
 
 Create a responsive web page using vanilla HTML, CSS, and JavaScript only (no
-frameworks or libraries). The design specifications and requirements are detailed below.
+frameworks or libraries).
 
 ## Project Structure
 

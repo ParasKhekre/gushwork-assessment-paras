@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gushwork Assignment</title>
+    <title>Gushwork | Assignment</title>
     <link rel="stylesheet" href="styles.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Urbanist:wght@400;500;600;700&display=swap"
@@ -71,7 +71,7 @@
                   aria-label="Previous image"
                 >
                   <img
-                    style="transform: rotate(-180deg)"
+                    class="arrow-rotated"
                     src="./Asset/ArrowRight.svg"
                     alt="arrow-left"
                   />
@@ -190,10 +190,9 @@
                     >Returns: If returned within 7 days</span
                   >
                   <span class="cert-info">
-                  Certifications: ISO Certified, BIS Certified
-                </span>
+                    Certifications: ISO Certified, BIS Certified
+                  </span>
                 </div>
-                
               </div>
 
               <div class="action-buttons">
@@ -201,7 +200,7 @@
                 <button class="button secondary-button">
                   View Technical Specs
                   <img
-                    style="width: 18px; height: 18px"
+                    class="icon-sm"
                     src="./Asset/CaretRight.svg"
                     alt="arrow-right"
                   />
@@ -212,24 +211,22 @@
         </div>
 
         <section class="trusted-by-section">
-        <div class="container">
-          <p class="trusted-by-text">
-            Trusted by Hundreds of Companies Globally
-          </p>
-          <div class="company-logos">
-            <img src="./Asset/euroFlex.png" alt="Euroflex Logo" />
-            <img src="./Asset/euroFlex.png" alt="Euroflex Logo" />
-            <img src="./Asset/euroFlex.png" alt="Euroflex Logo" />
-            <img src="./Asset/euroFlex.png" alt="Euroflex Logo" />
-            <img src="./Asset/euroFlex.png" alt="Euroflex Logo" />
-            <img src="./Asset/euroFlex.png" alt="Euroflex Logo" />
+          <div class="container">
+            <p class="trusted-by-text">
+              Trusted by Hundreds of Companies Globally
+            </p>
+            <div class="company-logos">
+              <img src="./Asset/euroFlex.png" alt="Euroflex Logo" />
+              <img src="./Asset/euroFlex.png" alt="Euroflex Logo" />
+              <img src="./Asset/euroFlex.png" alt="Euroflex Logo" />
+              <img src="./Asset/euroFlex.png" alt="Euroflex Logo" />
+              <img src="./Asset/euroFlex.png" alt="Euroflex Logo" />
+              <img src="./Asset/euroFlex.png" alt="Euroflex Logo" />
+            </div>
           </div>
-        </div>
-      </section>
-    </section>
+        </section>
       </main>
-
-      
+    </section>
 
     <!-- part2 starts here  -->
 
@@ -243,8 +240,8 @@
           </p>
 
           <div class="specs-table">
-            <div style="background-color: #374151d7" class="specs-row">
-              <div style="color: #ffffff" class="specs-parameter">
+            <div class="specs-row specs-row-header">
+              <div class="specs-parameter specs-parameter-header">
                 PARAMETER
               </div>
               <div class="specs-specification">SPECIFICATION</div>
@@ -430,13 +427,9 @@
     <section class="faq-section">
       <div class="container">
         <div class="faq-content">
-          <h2
-            style="display: inline; color: #2b3990; font-weight: 600"
-            class="faq-title"
-          >
-            Frequently
+          <h2 class="faq-title">
+            <span class="cta-text-accent">Frequently</span> Asked Questions
           </h2>
-          <h2 style="display: inline" class="faq-title">Asked Questions</h2>
 
           <div class="faq-list">
             <div class="faq-item">
@@ -576,14 +569,7 @@
       <div class="container">
         <div class="applications-content">
           <div class="width-80">
-            <div
-              style="
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-              "
-              class="section-header"
-            >
+            <div class="section-header flex-column-spaced">
               <h2 class="applications-title">
                 Versatile Applications Across Industries
               </h2>
@@ -599,7 +585,7 @@
                 aria-label="Previous applications"
               >
                 <img
-                  style="transform: rotate(-180deg)"
+                  class="arrow-rotated"
                   src="./Asset/ArrowRight.svg"
                   alt="arrow-left"
                 />
@@ -634,41 +620,68 @@
 
               <div class="application-card">
                 <div class="card-image">
-                  <img src="./Asset/Frame-1.png" alt="Textile Manufacturing" />
+                  <img
+                    src="./Asset/Frame-1.png"
+                    alt="Fishnet Manufacturing Process"
+                  />
                 </div>
                 <div class="card-content">
-                  <h3>Textile Manufacturing</h3>
+                  <h3>Fishnet Manufacturing</h3>
                   <p>
-                    Advanced solutions for textile production with precision
-                    control and high-quality output for various fabric types and
-                    applications.
+                    Our machinery excels in shipping materials and reinforcement
+                    sheets, delivering materials, and reinforcement sheets
+                    including polyester fiber.
                   </p>
                 </div>
               </div>
 
               <div class="application-card">
                 <div class="card-image">
-                  <img src="./Asset/Frame-1.png" alt="Industrial Packaging" />
+                  <img
+                    src="./Asset/Frame-1.png"
+                    alt="Fishnet Manufacturing Process"
+                  />
                 </div>
                 <div class="card-content">
-                  <h3>Industrial Packaging</h3>
+                  <h3>Fishnet Manufacturing</h3>
                   <p>
-                    Comprehensive packaging solutions with automated processes
-                    ensuring consistent quality and efficiency in production
-                    lines.
+                    Our machinery excels in shipping materials and reinforcement
+                    sheets, delivering materials, and reinforcement sheets
+                    including polyester fiber.
                   </p>
                 </div>
               </div>
 
               <div class="application-card">
                 <div class="card-image">
-                  <img src="./Asset/Frame-1.png" alt="Marine Applications" />
+                  <img
+                    src="./Asset/Frame-1.png"
+                    alt="Fishnet Manufacturing Process"
+                  />
                 </div>
                 <div class="card-content">
-                  <h3>Marine Applications</h3>
+                  <h3>Fishnet Manufacturing</h3>
                   <p>
-                    Specialized equipment for marine industry applications
-                    including nets, ropes, and waterproof materials production.
+                    Our machinery excels in shipping materials and reinforcement
+                    sheets, delivering materials, and reinforcement sheets
+                    including polyester fiber.
+                  </p>
+                </div>
+              </div>
+
+              <div class="application-card">
+                <div class="card-image">
+                  <img
+                    src="./Asset/Frame-1.png"
+                    alt="Fishnet Manufacturing Process"
+                  />
+                </div>
+                <div class="card-content">
+                  <h3>Fishnet Manufacturing</h3>
+                  <p>
+                    Our machinery excels in shipping materials and reinforcement
+                    sheets, delivering materials, and reinforcement sheets
+                    including polyester fiber.
                   </p>
                 </div>
               </div>
@@ -1170,21 +1183,17 @@
               <div class="quote-icon">
                 <img src="./Asset/icon.svg" alt="Quote icon" />
               </div>
-              <h2
-                style="font-size: 24px; line-height: 120%"
-                class="product-title"
-              >
-                Excellent support for specialized applications.
+              <h2 class="product-title testimonial-heading">
+                Revolutionized our FIBC production efficiency!
               </h2>
               <p class="testimonial-text">
-                The durability and performance of Meera's fishnet processing
-                equipment has significantly improved our marine product quality.
-                Excellent support for specialized applications.
+                Meera Industries' TFO machines have revolutionized our FIBC
+                production efficiency. The precision engineering delivers the
+                consistent yarn strength critical for our bulk container
+                applications.
               </p>
               <div class="author-info">
-                <div class="author-avatar">
-                  <img src="/placeholder.svg?height=60&width=60" alt="" />
-                </div>
+                <div class="author-avatar"></div>
                 <div class="author-details">
                   <span class="author-name">Carlos Mendoza</span>
                   <span class="author-title">Operations Manager</span>
@@ -1196,10 +1205,28 @@
               <div class="quote-icon">
                 <img src="./Asset/icon.svg" alt="Quote icon" />
               </div>
-              <h2
-                style="font-size: 24px; line-height: 120%"
-                class="product-title"
-              >
+              <h2 class="product-title testimonial-heading">
+                Excellent support for specialized applications.
+              </h2>
+              <p class="testimonial-text">
+                The durability and performance of Meera's fishnet processing
+                equipment has significantly improved our marine product quality.
+                Excellent support for specialized applications.
+              </p>
+              <div class="author-info">
+                <div class="author-avatar"></div>
+                <div class="author-details">
+                  <span class="author-name">Carlos Mendoza</span>
+                  <span class="author-title">Operations Manager</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="testimonial-card">
+              <div class="quote-icon">
+                <img src="./Asset/icon.svg" alt="Quote icon" />
+              </div>
+              <h2 class="product-title testimonial-heading">
                 Excellent support for specialized applications.
               </h2>
               <p class="testimonial-text">
@@ -1208,20 +1235,7 @@
                 textile requirements is exceptional.
               </p>
               <div class="author-info">
-                <div class="author-avatar">
-                  <span
-                    style="
-                      width: 48px;
-                      height: 48px;
-                      border-radius: 50%;
-                      background-color: #d9d9d9bc;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                    "
-                  >
-                  </span>
-                </div>
+                <div class="author-avatar"></div>
                 <div class="author-details">
                   <span class="author-name">Rajesh Kumar</span>
                   <span class="author-title">Manufacturing Head</span>
@@ -1233,10 +1247,7 @@
               <div class="quote-icon">
                 <img src="./Asset/icon.svg" alt="Quote icon" />
               </div>
-              <h2
-                style="font-size: 24px; line-height: 120%"
-                class="product-title"
-              >
+              <h2 class="product-title testimonial-heading">
                 Excellent support for specialized applications.
               </h2>
               <p class="testimonial-text">
@@ -1245,20 +1256,7 @@
                 applications.
               </p>
               <div class="author-info">
-                <div class="author-avatar">
-                  <span
-                    style="
-                      width: 48px;
-                      height: 48px;
-                      border-radius: 50%;
-                      background-color: #d9d9d9bc;
-                      display: flex;
-                      align-items: center;
-                      justify-content: center;
-                    "
-                  >
-                  </span>
-                </div>
+                <div class="author-avatar"></div>
                 <div class="author-details">
                   <span class="author-name">John Doe</span>
                   <span class="author-title">Production Director</span>
@@ -1268,23 +1266,18 @@
 
             <div class="testimonial-card">
               <div class="quote-icon">
-                <img
-                  src="/placeholder.svg?height=24&width=24"
-                  alt="Quote icon"
-                />
+                <img src="./Asset/icon.svg" alt="Quote icon" />
               </div>
+              <h2 class="product-title testimonial-heading">
+                Provides the exact specifications we need!
+              </h2>
               <p class="testimonial-text">
-                The quality of HDPE pipes from Meera is consistently high,
-                meeting all our project requirements for infrastructure
-                development.
+                For our technical textile applications, Meera's specialized
+                machinery provides the exact specifications we need. Their
+                understanding of automotive textile requirements is exceptional.
               </p>
               <div class="author-info">
-                <div class="author-avatar">
-                  <img
-                    src="/placeholder.svg?height=60&width=60"
-                    alt="Jane Smith avatar"
-                  />
-                </div>
+                <div class="author-avatar"></div>
                 <div class="author-details">
                   <span class="author-name">Jane Smith</span>
                   <span class="author-title">Project Engineer</span>
@@ -1369,8 +1362,8 @@
       <div class="container">
         <div class="cta-box">
           <div class="cta-text">
-            <h3 style="display: inline">Didn't find what</h3>
-            <h3 style="color: #2b3990; display: inline">you're looking for?</h3>
+            <h3 class="cta-text-label">Didn't find what</h3>
+            <h3 class="cta-text-accent">you're looking for?</h3>
             <p>
               Talk to our experts for custom solutions and tailored guidance.
             </p>
@@ -1430,13 +1423,11 @@
               Get a personalized consultation and quote for machinery solutions
               tailored to your specific production requirements.
             </p>
-            <hr
-              style="border: 1px solid #ffffff; opacity: 0.2; margin: 10px 0"
-            />
+            <hr class="divider-light" />
             <p class="contact-info-text">
               For immediate assistance, feel free to give us a direct call at
-              <a href="tel:+91-XXX-XXX-XXXX">+91-XXX-XXX-XXXX</a>. You can also
-              send us a quick email at
+              <span class="number">+91-XXX-XXX-XXXX</span>. You can also send us
+              a quick email at
               <a href="mailto:info@meeraind.com">info@meeraind.com</a>
             </p>
           </div>
@@ -1542,7 +1533,7 @@
           </div>
         </div>
       </div>
-      <hr style="border: 1px solid #ffffff; margin: 10px 0" />
+      <hr class="divider-footer" />
       <div class="footer-bottom">
         <div class="container">
           <p class="copyright">
@@ -1569,7 +1560,9 @@
         </div>
         <form id="downloadForm" class="modal-form">
           <div class="form-group">
-            <label for="emailInput" class="form-label">Your Email <span class="required">*</span></label>
+            <label for="emailInput" class="form-label"
+              >Your Email <span class="required">*</span></label
+            >
             <input
               type="email"
               id="emailInput"
@@ -1579,7 +1572,9 @@
             />
           </div>
           <div class="form-group">
-            <label for="contactInput" class="form-label">Your Contact (Optional)</label>
+            <label for="contactInput" class="form-label"
+              >Your Contact (Optional)</label
+            >
             <input
               type="tel"
               id="contactInput"
@@ -1588,7 +1583,9 @@
             />
           </div>
           <div class="modal-footer">
-            <button type="submit" class="modal-button" disabled>Download Brochure</button>
+            <button type="submit" class="modal-button" disabled>
+              Download Brochure
+            </button>
           </div>
         </form>
       </div>

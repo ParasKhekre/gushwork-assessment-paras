@@ -1558,5 +1558,95 @@
     </footer>
 
     <script src="script.js"></script>
+
+    <!-- Download Full Technical Datasheet Modal -->
+    <div id="downloadModal" class="modal">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Let us email the entire catalogue to you</h2>
+          <button class="modal-close" aria-label="Close modal">&times;</button>
+        </div>
+        <form id="downloadForm" class="modal-form">
+          <div class="form-group">
+            <label for="emailInput" class="form-label">Your Email <span class="required">*</span></label>
+            <input
+              type="email"
+              id="emailInput"
+              class="form-input"
+              placeholder="example@gmail.com"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <label for="contactInput" class="form-label">Your Contact (Optional)</label>
+            <input
+              type="tel"
+              id="contactInput"
+              class="form-input"
+              placeholder="+91-0000000000"
+            />
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="modal-button" disabled>Download Brochure</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Request a Call Back Modal -->
+    <div id="quoteModal" class="modal">
+      <div class="modal-overlay"></div>
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title">Request a call back</h2>
+          <button class="modal-close" aria-label="Close modal">&times;</button>
+        </div>
+        <form id="quoteForm" class="modal-form">
+          <div class="form-group">
+            <input
+              type="text"
+              id="fullNameInput"
+              class="form-input"
+              placeholder="Full Name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="text"
+              id="companyInput"
+              class="form-input"
+              placeholder="Company Name"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <input
+              type="email"
+              id="emailAddressInput"
+              class="form-input"
+              placeholder="Email Address"
+              required
+            />
+          </div>
+          <div class="form-group">
+            <div class="phone-input-group">
+              <span class="country-code">+91</span>
+              <input
+                type="tel"
+                id="phoneInput"
+                class="form-input phone-field"
+                placeholder="7003026616"
+                required
+              />
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="modal-button">Submit Form</button>
+          </div>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

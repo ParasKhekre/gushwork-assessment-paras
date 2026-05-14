@@ -758,3 +758,98 @@ document.addEventListener("contextmenu", (e) => {
     e.preventDefault();
   }
 });
+
+// Modal Functionality
+document.addEventListener("DOMContentLoaded", () => {
+  function setupModal(options) {
+    const modal = document.getElementById(options.modalId);
+    const openButtons = document.querySelectorAll(options.openSelector);
+    const closeButton = modal?.querySelector(".modal-close");
+    const overlay = modal?.querySelector(".modal-overlay");
+    const form = options.formId
+      ? document.getElementById(options.formId)
+      : null;
+    const emailInput = form
+      ? form.querySelector(`#${options.emailInputId}`)
+      : null;
+    const submitButton = form ? form.querySelector(".modal-button") : null;
+
+    function updateSubmitState() {
+      if (submitButton && options.disableSubmitIfEmpty && emailInput) {
+        submitButton.disabled = !emailInput.value.trim();
+      }
+    }
+
+    function openModal() {
+      modal?.classList.add("active");
+      document.body.style.overflow = "hidden";
+      form?.reset();
+      if (options.disableSubmitIfEmpty) updateSubmitState();
+      if (emailInput) emailInput.focus();
+    }
+
+    function closeModal() {
+      modal?.classList.remove("active");
+      document.body.style.overflow = "auto";
+      form?.reset();
+      if (options.disableSubmitIfEmpty) updateSubmitState();
+    }
+
+    openButtons.forEach((button) => {
+      button.addEventListener("click", (e) => {
+        e.preventDefault();
+        openModal();
+      });
+    });
+
+    if (emailInput && options.disableSubmitIfEmpty) {
+      emailInput.addEventListener("input", updateSubmitState);
+    }
+
+    if (closeButton) {
+      closeButton.addEventListener("click", closeModal);
+    }
+
+    if (overlay) {
+      overlay.addEventListener("click", closeModal);
+    }
+
+    if (form) {
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const values = Array.from(form.elements)
+          .filter((el) => el.tagName === "INPUT")
+          .reduce((acc, input) => {
+            acc[input.id] = input.value;
+            return acc;
+          }, {});
+        console.log(`${options.modalId} submitted:`, values);
+        closeModal();
+      });
+    }
+  }
+
+  setupModal({
+    modalId: "downloadModal",
+    openSelector: ".download-button",
+    formId: "downloadForm",
+    emailInputId: "emailInput",
+    disableSubmitIfEmpty: true,
+  });
+
+  setupModal({
+    modalId: "quoteModal",
+    openSelector: ".quote-button",
+    formId: "quoteForm",
+    disableSubmitIfEmpty: false,
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") {
+      document.querySelectorAll(".modal.active").forEach((activeModal) => {
+        activeModal.classList.remove("active");
+      });
+      document.body.style.overflow = "auto";
+    }
+  });
+});
